@@ -4,6 +4,7 @@
 > 纯前端静态网页，打开就能测，不用登录、不上传答案。
 
 **在线体验**：https://37jccyzrulq8grzrqz6.traesite.cn
+**GitHub Pages 镜像**：https://liiizc35.github.io/dog-personality-test/
 
 关键词：狗系人格测试 / 狗狗人格测试 / 测测你是哪种小狗 / 你是哪种狗 / 性格测试 / 人格测试 / 心理测试 / 宠物人格 / 双人合拍 / 情侣测试 / dog personality test / dog type quiz / personality quiz
 
@@ -132,4 +133,4 @@ A lightweight, dependency-free **dog personality test**. Answer 24 everyday-scen
 - Scoring: normalized z-scores across 8 traits, nearest-profile matching against 10 original dog profiles
 - Keywords: dog personality test, dog type quiz, personality quiz, MBTI-like test, fun personality test, static website
 
-**Live demo**: https://37jccyzrulq8grzrqz6.traesite.cn
+**Live demo**: https://37jccyzrulq8grzrqz6.traesite.cn · https://liiizc35.github.io/dog-personality-test/
