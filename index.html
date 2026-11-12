@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>测测你是哪种小狗｜狗系人格测试 · 24 题狗狗人格测试</title>
+<meta name="description" content="24 道生活场景题，1 分钟测出你的狗狗人格。狗系人格测试共 10 种狗型（金毛、边牧、柴犬、柯基、萨摩耶等，含 2 只隐藏款），附八维性格雷达、逐条解读与双人合拍指数，可保存结果海报。">
+<meta name="theme-color" content="#FBF3E5">
+<meta property="og:title" content="测测你是哪种小狗｜狗系人格测试">
+<meta property="og:description" content="24 道生活场景题，1 分钟测出你的狗狗人格。10 种狗型含 2 只隐藏款，还能测双人合拍。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/dogs/golden.jpg">
+<link rel="canonical" href="https://37jccyzrulq8grzrqz6.traesite.cn/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F3C969'/%3E%3Cellipse cx='22' cy='24' rx='6' ry='8' fill='%233A2A20'/%3E%3Cellipse cx='42' cy='24' rx='6' ry='8' fill='%233A2A20'/%3E%3Cellipse cx='32' cy='42' rx='12' ry='10' fill='%233A2A20'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ========== 首页 ========== -->
+  <section class="screen is-active" id="screen-intro">
+    <div class="brand">DOG PERSONALITY TEST · 狗系人格测试</div>
+
+    <h1 class="hero-title">测测你是<br><span class="hl">哪种小狗<svg class="underline" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9C40 3 92 2 197 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
+
+    <p class="hero-sub">24 个生活场景，1 分钟<br>看看你身体里住着哪只狗</p>
+
+    <div class="dog-strip" aria-hidden="true">
+      <img src="assets/dogs/golden.jpg" alt="">
+      <img src="assets/dogs/corgi.jpg" alt="">
+      <img src="assets/dogs/samoyed.jpg" alt="">
+      <img src="assets/dogs/husky.jpg" alt="">
+      <img src="assets/dogs/chihuahua.jpg" alt="">
+      <span class="more">+5</span>
+    </div>
+
+    <button class="btn btn-primary btn-lg" id="btnStart">
+      开始测测
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="meta-row">
+      <span>24 题</span><i></i><span>约 1 分钟</span><i></i><span>无需登录</span>
+    </div>
+
+    <button class="link-btn" id="btnPairIntro">双人合拍 · 测测你们合不合 <span>→</span></button>
+    <button class="link-btn" id="btnGalleryIntro">狗狗图鉴 <b id="introGalleryCount">0 / 10</b><span>→</span></button>
+
+    <p class="disclaimer">结果仅供娱乐，不构成任何专业判断</p>
+  </section>
+
+  <!-- ========== 答题 ========== -->
+  <section class="screen" id="screen-quiz">
+    <header class="quiz-head">
+      <button class="icon-btn" id="btnBack" aria-label="上一题">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="quiz-bar"><i id="quizBar"></i></div>
+      <div class="quiz-count" id="quizCount">01 / 24</div>
+    </header>
+
+    <div class="q-body">
+      <div class="q-kicker">QUESTION <span id="qIndex">01</span></div>
+      <h2 class="q-text" id="qText"></h2>
+      <div class="options" id="qOptions"></div>
+      <p class="q-hint">选最像你的那一个，别想太久</p>
+    </div>
+  </section>
+
+  <!-- ========== 计算中 ========== -->
+  <section class="screen screen-center" id="screen-loading">
+    <div class="loading-paw">
+      <img src="assets/dogs/golden.jpg" alt="">
+      <span class="paw p1">🐾</span>
+      <span class="paw p2">🐾</span>
+      <span class="paw p3">🐾</span>
+    </div>
+    <h2 class="loading-text" id="loadingText">正在闻一闻你的性格…</h2>
+    <p class="loading-sub">匹配 10 种狗系人格 · 含 2 只隐藏款</p>
+  </section>
+
+  <!-- ========== 结果 ========== -->
+  <section class="screen" id="screen-result">
+    <div class="ribbon" id="resRibbon">你的狗系人格</div>
+
+    <div class="dog-frame">
+      <img id="resImg" alt="">
+      <span class="dog-no" id="resNo">NO.01</span>
+    </div>
+
+    <h2 class="res-name" id="resName"></h2>
+    <p class="res-title" id="resTitle"></p>
+    <div class="tag-row" id="resTags"></div>
+    <p class="res-desc" id="resDesc"></p>
+
+    <div class="section-head"><h3>性格八维</h3><span>同类相对倾向</span></div>
+    <div class="radar-wrap" id="resRadar"></div>
+    <div class="dims" id="resDims"></div>
+
+    <div class="notes" id="resNotes"></div>
+
+    <div class="section-head"><h3>你的日常</h3></div>
+    <ul class="traits" id="resTraits"></ul>
+
+    <div class="section-head"><h3>别人容易误会你</h3><span>其实不是这样</span></div>
+    <ul class="traits is-misread" id="resMisread"></ul>
+
+    <div class="section-head"><h3>狗际关系</h3></div>
+    <div class="pair-grid">
+      <div class="pair-card is-best">
+        <span class="pair-label">最合拍</span>
+        <img id="pairBestImg" alt="">
+        <b id="pairBestName"></b>
+        <p id="pairBestWhy"></p>
+      </div>
+      <div class="pair-card is-worst">
+        <span class="pair-label">容易互相看不懂</span>
+        <img id="pairWorstImg" alt="">
+        <b id="pairWorstName"></b>
+        <p id="pairWorstWhy"></p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btnShare">分享结果</button>
+      <button class="btn btn-ghost" id="btnPoster">保存结果海报</button>
+      <button class="btn btn-ghost" id="btnPairFromResult">双人合拍 · 和 TA 比一比</button>
+      <button class="btn btn-ghost" id="btnRetry">再测一次</button>
+      <button class="link-btn" id="btnGalleryRes">查看狗狗图鉴 <b id="resGalleryCount">0 / 10</b><span>→</span></button>
+      <button class="link-btn" id="btnHome">返回首页 <span>→</span></button>
+    </div>
+
+    <p class="disclaimer">结果仅供娱乐，不构成任何专业判断</p>
+  </section>
+
+  <!-- ========== 朋友的结果 ========== -->
+  <section class="screen" id="screen-friend">
+    <div class="friend-banner">
+      <span class="friend-dot"></span>
+      这是你朋友测出来的小狗
+    </div>
+
+    <div class="dog-frame">
+      <img id="fImg" alt="">
+      <span class="dog-no" id="fNo">NO.01</span>
+    </div>
+
+    <h2 class="res-name" id="fName"></h2>
+    <p class="res-title" id="fTitle"></p>
+    <div class="tag-row" id="fTags"></div>
+    <p class="res-desc" id="fDesc"></p>
+
+    <div class="section-head"><h3>TA 的性格八维</h3></div>
+    <div class="radar-wrap" id="fRadar"></div>
+
+    <div class="actions">
+      <button class="btn btn-primary btn-lg" id="btnFriendStart">我也来测一只</button>
+      <button class="link-btn" id="btnFriendGallery">查看狗狗图鉴 <span>→</span></button>
+    </div>
+    <p class="disclaimer">结果仅供娱乐，不构成任何专业判断</p>
+  </section>
+
+  <!-- ========== 双人合拍 ========== -->
+  <section class="screen" id="screen-pair">
+    <div class="ribbon">DOUBLE · 双人合拍</div>
+    <h2 class="pair-hero">你们合不合？</h2>
+    <p class="pair-sub">选两只狗，看默认反应有多接近<br>不评判关系好坏，只看相处方式</p>
+
+    <div class="pair-picker">
+      <button class="pair-slot" id="slotA" type="button">
+        <img id="slotAImg" alt="" hidden>
+        <span class="pair-slot-empty" aria-hidden="true">🐾</span>
+        <b id="slotAName">选一只</b>
+      </button>
+      <span class="pair-heart">×</span>
+      <button class="pair-slot" id="slotB" type="button">
+        <img id="slotBImg" alt="" hidden>
+        <span class="pair-slot-empty" aria-hidden="true">🐾</span>
+        <b id="slotBName">选一只</b>
+      </button>
+    </div>
+
+    <div class="pair-result" id="pairResult" hidden>
+      <div class="pair-score">
+        <b id="pairScore">0</b>
+        <span>合拍指数</span>
+      </div>
+      <div class="pair-band" id="pairBand"></div>
+      <p class="pair-line" id="pairLine"></p>
+      <ul class="pair-points" id="pairPoints"></ul>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btnPairShare" hidden>分享这组合拍</button>
+      <button class="btn btn-ghost" id="btnPairMine">我也来测一只</button>
+      <button class="link-btn" id="btnPairHome">返回首页 <span>→</span></button>
+    </div>
+    <p class="disclaimer">合拍指数来自性格画像的相似度，仅供娱乐</p>
+  </section>
+</div>
+
+<!-- 图鉴 -->
+<div class="sheet" id="gallerySheet" aria-hidden="true">
+  <div class="sheet-panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h3>狗狗图鉴</h3>
+      <button class="icon-btn" id="btnCloseGallery" aria-label="关闭">✕</button>
+    </div>
+    <p class="sheet-sub">已解锁 <b id="galleryCount">0</b> / 10 · 8 只常规 + 2 只隐藏款</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+
+<!-- 单只狗的详情 -->
+<div class="sheet" id="dogSheet" aria-hidden="true">
+  <div class="sheet-panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h3 id="dogSheetName">金毛</h3>
+      <button class="icon-btn" id="btnCloseDog" aria-label="关闭">✕</button>
+    </div>
+    <div class="dog-sheet-body" id="dogSheetBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- 结果海报 -->
+<div class="sheet" id="posterSheet" aria-hidden="true">
+  <div class="sheet-panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h3>结果海报</h3>
+      <button class="icon-btn" id="btnClosePoster" aria-label="关闭">✕</button>
+    </div>
+    <p class="sheet-sub">手机长按图片保存 · 电脑右键「图片另存为」</p>
+    <img class="poster-preview" id="posterPreview" alt="我的狗系人格海报">
+    <a class="btn btn-primary poster-save" id="btnPosterSave" download>保存图片</a>
+  </div>
+</div>
+
+<!-- 双人合拍：选狗 -->
+<div class="sheet" id="pickSheet" aria-hidden="true">
+  <div class="sheet-panel">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-head">
+      <h3>选一只狗</h3>
+      <button class="icon-btn" id="btnClosePick" aria-label="关闭">✕</button>
+    </div>
+    <p class="sheet-sub">8 只常规狗都能选 · 隐藏款要先自己测出来</p>
+    <div class="pick-grid" id="pickGrid"></div>
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
